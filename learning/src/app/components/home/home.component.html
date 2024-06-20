@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sridge</title>
+    
+</head>
+<body>
+    <header>
+        <div class="logo">The <span class="highlight">S</span>ridge</div>
+    </header>
+    <section class="hero">
+        <div class="overlay">
+            <h1>Improve your skills on your own<br>To prepare for a better future</h1>
+            <a href="#" class="btn">Register Now</a>
+        </div>
+    </section>
+    <section class="courses-overview">
+        <h2>Discover Our Courses</h2>
+        <a href="#" class="btn">View More</a>
+    </section>
+    <section class="courses">
+        <div class="course" *ngFor="let course of listCours">
+            <img [src]="course.image">
+            <h3>{{ course.titre }}</h3>
+            <p>{{ course.prix }} DT/ Month</p>
+        </div>
+    </section>
+
+    <section class="contact-us">
+        <h2>Contact Us</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Jiara Martins">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="hello@reallygreatsite.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message here"></textarea>
+          </div>
+          <button type="submit" class="btn">Send the message</button>
+        </form>
+      </section>
+</body>
+</html>

@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo .highlight {
+    color: #FF5722; /* Adjust the color to match the "S" in the logo */
+}
+
+.hero {
+    position: relative;
+    height: 60vh;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero .overlay h1 {
+    font-size: 2em;
+    margin: 0 0 20px;
+}
+
+.hero .overlay .btn {
+    padding: 10px 20px;
+    background: #E91E63; /* Adjust the button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.courses-overview {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.courses-overview h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.courses-overview .btn {
+    padding: 10px 20px;
+    background: #E91E63; /* Adjust the button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.course {
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: calc(33.333% - 20px); /* 3 items per row with some margin */
+}
+
+.course img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.course h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.course p {
+    color: #E91E63;
+    font-weight: bold;
+}
+/* Contact Us Form */
+.contact-us {
+    background: #f5a623;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 30px;
+    margin: 300px;
+  }
+  
+  .contact-us h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .contact-us .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .contact-us label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+  
+  .contact-us input,
+  .contact-us textarea {
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    background: #ffe0b3;
+    margin: auto;
+  }
+  
+  .contact-us textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .contact-us .btn {
+    padding: 10px 20px;
+    background: #e91e63; /* Adjust the button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }

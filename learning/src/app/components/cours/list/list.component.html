@@ -1,0 +1,42 @@
+<div>
+    <h2>{{ selectedCourse ? 'Update Course' : 'Add Course' }}</h2>
+    <form [formGroup]="postFormm" (ngSubmit)="onSubmit()">
+      <input formControlName="id" type="hidden">
+      <label for="titre">Titre</label>
+      <input id="titre" formControlName="titre" type="text">
+      <br>
+      <label for="image">Image</label>
+      <input id="image" formControlName="image" type="text">
+      <br>
+      <button type="submit">{{ selectedCourse ? 'Update Course' : 'Add Course' }}</button>
+      <button type="button" (click)="clearForm()">Clear</button>
+    </form>
+  </div>
+  
+  <div>
+    <h2>Courses List</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Prix</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td>{{ course.id }}</td>
+          <td>{{ course.titre }}</td>
+          <td>{{ course.prix }}</td>
+          <td>{{ course.image }}</td>
+          <td>
+            <button (click)="onUpdate(course)">Select</button>
+            <button (click)="onDelete(course.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
