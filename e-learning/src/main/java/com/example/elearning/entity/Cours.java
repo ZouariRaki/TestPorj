@@ -1,16 +1,9 @@
 package com.example.elearning.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.*;
 
 
 @Getter
@@ -18,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class Cours {
     @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +19,8 @@ public class Cours {
       private Long id;
       private String titre;
       private Float prix;
-      private String image;
+    @Lob
+    @Column(length = 1000000)
+    private byte[] displayPicture;
 
 }

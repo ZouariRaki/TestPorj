@@ -1,0 +1,129 @@
+/* course-list.component.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 10000px;
+    margin: 5px auto;
+    padding: 2px;
+    background-color: #f1f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 span {
+    color: #007bff;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2px;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.add-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table thead th {
+    background-color: #007bff;
+    color: white;
+    padding: 5px;
+    text-align: left;
+}
+
+table tbody tr {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+table tbody td {
+    padding: 10px;
+}
+
+table tbody td img {
+    width: 50px;
+    height: auto;
+    border-radius: 4px;
+}
+
+table tbody td button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0px;
+    font-size: 16px;
+}
+
+table tbody td .edit-btn {
+    color: #ffc107;
+}
+
+table tbody td .delete-btn {
+    color: #dc3545;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination span {
+    color: #666;
+}
+
+.pagination div {
+    display: flex;
+    align-items: center;
+}
+
+.pagination button {
+    background: none;
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+}

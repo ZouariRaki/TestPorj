@@ -8,13 +8,15 @@ import { ListComponent } from './components/cours/list/list.component';
 import { AddcoursComponent } from './components/cours/addcours/addcours.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdatecoursComponent } from './components/cours/updatecours/updatecours.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ListComponent,
-    AddcoursComponent
+    AddcoursComponent,
+    UpdatecoursComponent
   ],
   imports: [
     BrowserModule,

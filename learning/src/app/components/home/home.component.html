@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sridge</title>
+    <title>The Bridge</title>
     
 </head>
 <body>
     <header>
-        <div class="logo">The <span class="highlight">S</span>ridge</div>
+        <div class="logo">The <span class="highlight">B</span>ridge</div>
     </header>
     <section class="hero">
         <div class="overlay">
@@ -22,7 +22,7 @@
     </section>
     <section class="courses">
         <div class="course" *ngFor="let course of listCours">
-            <img [src]="course.image">
+          <img [src]="course.displayPicture" alt="Course Image" width="150">
             <h3>{{ course.titre }}</h3>
             <p>{{ course.prix }} DT/ Month</p>
         </div>

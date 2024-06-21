@@ -1,1 +1,28 @@
-<p>addcours works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add New Course</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Add New <span>Course</span></h2>
+        <form (ngSubmit)="addCours()">
+            <div class="form-group">
+                <label for="titre">Title</label>
+                <input type="text" id="titre" [(ngModel)]="titre" name="titre" required>
+            </div>
+            <div class="form-group">
+                <label for="prix">Price</label>
+                <input type="number" id="prix" [(ngModel)]="prix" name="prix" required>
+            </div>
+            <div class="form-group">
+                <label for="file">Image</label>
+                <input type="file" id="file" (change)="onFileSelected($event)" name="file" required>
+            </div>
+            <button type="submit">Add Course</button>
+        </form>
+    </div>
+</body>
+</html>

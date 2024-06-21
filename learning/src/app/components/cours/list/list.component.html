@@ -1,42 +1,34 @@
-<div>
-    <h2>{{ selectedCourse ? 'Update Course' : 'Add Course' }}</h2>
-    <form [formGroup]="postFormm" (ngSubmit)="onSubmit()">
-      <input formControlName="id" type="hidden">
-      <label for="titre">Titre</label>
-      <input id="titre" formControlName="titre" type="text">
-      <br>
-      <label for="image">Image</label>
-      <input id="image" formControlName="image" type="text">
-      <br>
-      <button type="submit">{{ selectedCourse ? 'Update Course' : 'Add Course' }}</button>
-      <button type="button" (click)="clearForm()">Clear</button>
-    </form>
+<div class="container">
+  <h2>Manage <span>Courses</span></h2>
+  <div class="actions">
+    <button class="add-btn" (click)="navigateToAddCourse()">Add New Course</button>
   </div>
-  
-  <div>
-    <h2>Courses List</h2>
-    <table border="1">
+  <table>
       <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Prix</th>
-          <th>Image</th>
-          <th>Actions</th>
-        </tr>
+          <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Image</th>
+              <th></th>
+              <th>Actions</th>
+          </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let course of courses">
-          <td>{{ course.id }}</td>
-          <td>{{ course.titre }}</td>
-          <td>{{ course.prix }}</td>
-          <td>{{ course.image }}</td>
-          <td>
-            <button (click)="onUpdate(course)">Select</button>
-            <button (click)="onDelete(course.id)">Delete</button>
-          </td>
-        </tr>
+          <tr *ngFor="let cours of coursList">
+              <td><input type="checkbox"></td>
+              <td>{{ cours.titre }}</td>
+              <td>{{ cours.prix }} <b>DT/Month</b></td>
+              <td>
+                  <img [src]="cours.displayPicture" alt="Course Image" width="50">
+              </td>
+              <td></td>
+              <td>
+                  <button class="edit-btn"(click)="editCourse(cours)">✏️</button>
+                  <button class="delete-btn"(click)="deleteCourse(cours.id)">🗑️</button>
+              </td>
+          </tr>
       </tbody>
-    </table>
-  </div>
-  
+  </table>
+ 
+</div>

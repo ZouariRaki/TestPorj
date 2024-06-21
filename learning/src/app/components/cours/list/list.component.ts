@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Cours } from 'src/app/modules/cours';
 import { ServiceCoursService } from 'src/app/services/service-cours.service';
 
@@ -9,72 +10,48 @@ import { ServiceCoursService } from 'src/app/services/service-cours.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  coursList: Cours[] = [];
 
-  postFormm!: FormGroup;
-  courses: Cours[] = [];
-  selectedCourse: Cours | null = null; // Add this property
-
-  constructor(private formBuilder: FormBuilder, private serviceCours: ServiceCoursService) { }
+  constructor(private coursService: ServiceCoursService,private router: Router) {}
 
   ngOnInit(): void {
-    this.postFormm = this.formBuilder.group({
-      id: [null],
-      titre: [""],
-      image: [""],
-      prix: [0]
-    });
-
-    this.loadCourses();
+    this.fetchCours();
   }
-
-  loadCourses(): void {
-    this.serviceCours.getAllCours().subscribe(data => {
-      console.log('Fetched courses:', data); // Add logging
-      this.courses = data;
-    }, error => {
-      console.error('Error loading courses:', error);
+  fetchCours(): void {
+    this.coursService.getAllCours().subscribe({
+      next: (response) => {
+        this.coursList = response;
+      },
+      error: (error) => {
+        console.error('Error fetching cours', error);
+      }
     });
   }
+  navigateToAddCourse(): void {
+    this.router.navigate(['/addcours']);
+  }
+  editCourse(cours: any): void {
+    this.coursService.setSelectedCourse(cours); // Transmettez le cours sélectionné au service
+    this.router.navigate(['/update-cours']); // Redirigez vers le composant de mise à jour
+  }
 
-  onSubmit(): void {
-    const cours = this.postFormm.value;
-    if (this.selectedCourse) {
-      // Update course
-      this.serviceCours.updateCours(cours).subscribe(response => {
-        console.log('Course updated:', response);
-        this.loadCourses(); // Refresh the list of courses
-        this.clearForm(); // Clear the form after updating
-      }, error => {
-        console.error('Error updating course:', error);
-      });
-    } else {
-      // Add new course
-      this.serviceCours.addCours(cours).subscribe(response => {
-        console.log('Course added:', response);
-        this.loadCourses(); // Refresh the list of courses
-        this.clearForm(); // Clear the form after adding
-      }, error => {
-        console.error('Error adding course:', error);
+  deleteCourse(id: number): void {
+    if (confirm('Are you sure you want to delete this course?')) {
+      this.coursService.deleteCours(id).subscribe({
+        next: () => {
+          
+          this.coursList = this.coursList.filter(cours => cours.id !== id);
+          this.fetchCours();
+          this.showSuccessAlertAndRedirect();
+        },
+        error: (error) => {
+          console.error('Error deleting cours', error);
+        }
       });
     }
   }
-
-  onUpdate(cours: Cours): void {
-    this.postFormm.patchValue(cours);
-    this.selectedCourse = cours;
-  }
-
-  onDelete(courseId: number): void {
-    this.serviceCours.deleteCours(courseId).subscribe(response => {
-      console.log('Course deleted:', response);
-      this.loadCourses(); // Refresh the list of courses
-    }, error => {
-      console.error('Error deleting course:', error);
-    });
-  }
-
-  clearForm(): void {
-    this.postFormm.reset();
-    this.selectedCourse = null;
+  showSuccessAlertAndRedirect(): void {
+    alert('Course updated successfully!');
+    this.router.navigate(['/list']); // Redirigez vers la liste des cours
   }
 }
